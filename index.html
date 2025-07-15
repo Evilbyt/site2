@@ -1,140 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cybersecurity Portfolio of A S SUMITH" />
-  <meta name="author" content="A S SUMITH" />
-  <title>A S SUMITH | Cybersecurity Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cybersecurity Professional Portfolio">
+  <meta name="author" content="A S SUMITH">
+  <title>SUMITH | Cybersecurity Portfolio</title>
+
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="hero">
-    <canvas id="bg-canvas"></canvas>
-    <div class="hero-content">
-      <h1 class="typewriter" data-text='["A S SUMITH","Cybersecurity Enthusiast","IT Support Executive","Ethical Hacker"]'><span class="wrap"></span></h1>
-      <h2>Junior Executive - IT | Security Researcher</h2>
-      <a href="#about" class="scroll-down">Explore <i class="fas fa-arrow-down"></i></a>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">A S SUMITH</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#tools">Pentesting Tools</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="brand">A S SUMITH</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Projects</a></li>
-        <li><a href="#tools">Pentesting Tools</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>I am a structured and detail-conscious Computer Operator with 2+ years of experience in monitoring and maintaining computer systems and networks. I have experience in troubleshooting in both Windows and Linux, with a passion for cybersecurity and continual improvement through platforms like RedTeam Hacker Academy.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <h2 class="typewriter" data-text='["A S SUMITH", "Cybersecurity Enthusiast", "IT Support Specialist", "Ethical Hacker"]'></h2>
+      <p>Junior Executive - IT | Security Researcher</p>
+      <a href="#about" class="btn-primary">Explore My Work <i class="fas fa-arrow-down"></i></a>
     </div>
   </section>
 
-  <section id="services" class="section dark">
-    <div class="container">
-      <h2>What I Offer</h2>
-      <div class="grid-4">
-        <div class="service">System Monitoring & Maintenance</div>
-        <div class="service">Troubleshooting & Problem-Solving</div>
-        <div class="service">Networking & Vulnerability Scanning</div>
-        <div class="service">OS Skills: Windows & Linux</div>
-        <div class="service">Documentation & Typing</div>
-        <div class="service">Cybersecurity Awareness</div>
-        <div class="service">Time Management</div>
-        <div class="service">Team Collaboration</div>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container about-container">
+      <div class="about-image">
+        <img src="assets/img/profile.jpg" alt="A S SUMITH">
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I am a detail-oriented IT professional with 2+ years experience in monitoring and maintaining computer systems. My expertise includes enhancing system performance, network management, and ethical hacking.</p>
+        <p>Proficient in Windows and Linux, I’ve trained at RedTeam Hacker Academy to sharpen my skills in vulnerability assessment and ethical hacking.</p>
       </div>
     </div>
   </section>
 
+  <!-- Skills Section -->
+  <section id="skills" class="section bg-light">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-box">
+          <h3>Cybersecurity</h3>
+          <ul>
+            <li>Vulnerability Assessment</li>
+            <li>Penetration Testing</li>
+            <li>Network Security</li>
+            <li>Security Auditing</li>
+            <li>Incident Response</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Networking</h3>
+          <ul>
+            <li>TCP/IP Protocols</li>
+            <li>Firewall Configuration</li>
+            <li>VPN Setup</li>
+            <li>Wireless Security</li>
+            <li>Network Monitoring</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>System Administration</h3>
+          <ul>
+            <li>Windows Server</li>
+            <li>Linux Admin</li>
+            <li>Virtualization</li>
+            <li>Backup Solutions</li>
+            <li>System Hardening</li>
+          </ul>
+        </div>
+        <div class="skill-box">
+          <h3>Development</h3>
+          <ul>
+            <li>Python Scripting</li>
+            <li>Bash Scripting</li>
+            <li>Web Development</li>
+            <li>Security Tooling</li>
+            <li>Automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
   <section id="portfolio" class="section">
     <div class="container">
-      <h2>Projects</h2>
-      <div class="grid-2">
-        <div class="project">
-          <img src="assets/img/portscan.png" alt="Port Scanner" />
+      <h2 class="section-title">Recent Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="assets/img/portscan.png" alt="Port Scanner">
           <h3>Multi-threaded Port Scanner</h3>
-          <p>Python tool for scanning open ports using socket and threading.</p>
-          <a href="https://github.com/Evilbyt/port-scanner/" target="_blank">View Project</a>
+          <p>Python tool for scanning open TCP ports and grabbing banners using sockets and threads.</p>
+          <a href="https://github.com/Evilbyt/port-scanner/" target="_blank">GitHub ↗</a>
         </div>
-        <div class="project">
-          <img src="assets/img/checker.png" alt="Password Checker" />
+        <div class="project-card">
+          <img src="assets/img/checker.png" alt="Password Checker">
           <h3>Password Strength Checker</h3>
-          <p>Desktop GUI app in Python (Tkinter) for password strength validation.</p>
-          <a href="https://github.com/Evilbyt/passwd/" target="_blank">View Project</a>
+          <p>GUI app using Tkinter to validate password strength with regex patterns.</p>
+          <a href="https://github.com/Evilbyt/passwd/" target="_blank">GitHub ↗</a>
         </div>
-        <div class="project">
-          <img src="assets/img/phising.jpg" alt="Phishing Simulator" />
+        <div class="project-card">
+          <img src="assets/img/phising.jpg" alt="Phishing Lab">
           <h3>Phishing Simulator</h3>
-          <p>Ethical phishing awareness tool with fake login page and logger.</p>
-          <a href="https://github.com/Evilbyt/phishing/" target="_blank">View Project</a>
+          <p>Ethical phishing lab with fake login pages, logging, and email training templates.</p>
+          <a href="https://github.com/Evilbyt/phishing/" target="_blank">GitHub ↗</a>
         </div>
-        <div class="project">
-          <img src="assets/img/esp8266.jpg" alt="ESP8266 Wi-Fi Deauth Lab" />
-          <h3>ESP8266 Wi-Fi Deauth Lab</h3>
-          <p>Performed Wi-Fi deauth attack in controlled lab using ESP8266.</p>
-          <a href="https://github.com/Evilbyt/ESP8266-writeups/blob/main/Labs/ESP8266_WiFi_Deauth.md" target="_blank">View Project</a>
+        <div class="project-card">
+          <img src="assets/img/esp8266.jpg" alt="ESP8266 Lab">
+          <h3>ESP8266 Wi-Fi Deauth</h3>
+          <p>Wireless deauthentication attack demonstration using Deauther firmware.</p>
+          <a href="https://github.com/Evilbyt/ESP8266-writeups/blob/main/Labs/ESP8266_WiFi_Deauth.md" target="_blank">GitHub ↗</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="tools" class="section dark">
+  <!-- Tools Section -->
+  <section id="tools" class="section bg-dark text-white">
     <div class="container">
-      <h2>Pentesting Tools</h2>
-      <div class="grid-3">
-        <div class="tool">
+      <h2 class="section-title">Pentesting Tools</h2>
+      <div class="tools-grid">
+        <div class="tool-card">
+          <img src="assets/img/tools/nmap.png" alt="Nmap">
           <h3>Nmap</h3>
-          <p>Network mapper for scanning open ports and services.</p>
+          <p>Network mapper used for scanning and service discovery.</p>
         </div>
-        <div class="tool">
+        <div class="tool-card">
+          <img src="assets/img/tools/burp.png" alt="Burp Suite">
           <h3>Burp Suite</h3>
-          <p>Web vulnerability scanner and intercepting proxy.</p>
+          <p>Web application testing platform for intercepting and manipulating HTTP requests.</p>
         </div>
-        <div class="tool">
-          <h3>Wireshark</h3>
-          <p>Packet analyzer for traffic inspection.</p>
-        </div>
-        <div class="tool">
+        <div class="tool-card">
+          <img src="assets/img/tools/metasploit.png" alt="Metasploit">
           <h3>Metasploit</h3>
-          <p>Exploitation framework for payloads and vulnerabilities.</p>
+          <p>Powerful framework for developing and executing exploits on remote targets.</p>
         </div>
-        <div class="tool">
-          <h3>John The Ripper</h3>
-          <p>Password cracking tool used in forensics.</p>
+        <div class="tool-card">
+          <img src="assets/img/tools/wireshark.png" alt="Wireshark">
+          <h3>Wireshark</h3>
+          <p>Packet analyzer used to capture and inspect network traffic in real time.</p>
         </div>
-        <div class="tool">
-          <h3>Hydra</h3>
-          <p>Brute force attack tool for login cracking.</p>
-        </div>
+      </div>
+      <div class="methodology">
+        <h3>My Pentesting Approach</h3>
+        <ol>
+          <li>Reconnaissance (OSINT, tools like Maltego)</li>
+          <li>Scanning (Nmap, Nessus)</li>
+          <li>Enumeration</li>
+          <li>Vulnerability Assessment</li>
+          <li>Exploitation</li>
+          <li>Post-Exploitation & Reporting</li>
+        </ol>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:sumithjohn1947@gmail.com">sumithjohn1947@gmail.com</a></p>
-      <p>Phone: <a href="tel:+916382626246">+91 6382626246</a></p>
-      <p>Location: Chennai, India</p>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:sumithjohn1947@gmail.com">sumithjohn1947@gmail.com</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+916382626246">+91 6382626246</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
+        <div class="social-icons">
+          <a href="https://github.com/Evilbyt" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 A S SUMITH. All Rights Reserved.</p>
-  </footer>
-
-  <script src="scripts.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </body>
 </html>
+
 
