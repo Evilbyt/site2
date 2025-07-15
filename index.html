@@ -1,200 +1,1145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cybersecurity Professional Portfolio">
-  <meta name="author" content="A S SUMITH">
-  <title>SUMITH | Cybersecurity Portfolio</title>
-
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A S SUMITH - Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff4e50;
+            --dark: #0f0c29;
+            --darker: #090717;
+            --light: #f0f2f5;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(106, 17, 203, 0.1) 0%, transparent 40%), 
+                        radial-gradient(circle at 80% 70%, rgba(37, 117, 252, 0.1) 0%, transparent 40%);
+            z-index: -1;
+            animation: backgroundPulse 15s infinite alternate;
+        }
+        
+        /* Particles background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(15, 12, 41, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(106, 17, 203, 0.3);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 1.4rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: #c5c5c5;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1000px;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            padding-top: 4rem;
+        }
+        
+        .profile-container {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(106, 17, 203, 0.3);
+            box-shadow: 0 0 50px rgba(106, 17, 203, 0.5);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .profile-ring {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--primary);
+            border-right-color: var(--secondary);
+            animation: spin 12s linear infinite;
+        }
+        
+        .profile-ring:nth-child(2) {
+            width: 340px;
+            height: 340px;
+            animation: spinReverse 15s linear infinite;
+        }
+        
+        .hero-text {
+            text-align: left;
+            flex: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            color: #c5c5c5;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: #a0a0c0;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.6);
+        }
+        
+        .btn i {
+            margin-left: 8px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(106, 17, 203, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 2rem auto 0;
+            color: #c5c5c5;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0e7;
+        }
+        
+        .skills-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category li i {
+            color: var(--primary);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(106, 17, 203, 0.1);
+            border-color: rgba(106, 17, 203, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .service-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #c5c5c5;
+            font-size: 1rem;
+        }
+        
+        /* Pentesting Tools Section */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+            min-height: 220px;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(37, 117, 252, 0.1);
+            border-color: rgba(37, 117, 252, 0.3);
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-card p {
+            color: #c5c5c5;
+            font-size: 1rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .tool-card .btn {
+            margin-top: 1.5rem;
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+            align-self: flex-start;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            animation: fadeInUp 0.8s ease-out;
+            height: 300px;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-overlay p {
+            color: #c5c5c5;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            position: relative;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-details p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-details i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(15, 12, 41, 0.9);
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(106, 17, 203, 0.3);
+        }
+        
+        footer p {
+            color: #c5c5c5;
+            font-size: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spinReverse {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+        
+        @keyframes backgroundPulse {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.7;
+            }
+        }
+        
+        .animated {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .profile-container {
+                margin-top: 3rem;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 12, 41, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero h3 {
+                font-size: 1.4rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 5rem 1.5rem;
+            }
+            
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .profile-ring {
+                width: 260px;
+                height: 260px;
+            }
+            
+            .profile-ring:nth-child(2) {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <header class="navbar">
-    <div class="container">
-      <h1 class="logo">A S SUMITH</h1>
-      <nav class="nav">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Projects</a></li>
-          <li><a href="#tools">Pentesting Tools</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
+    <!-- Particles Background -->
     <div id="particles-js"></div>
-    <div class="hero-content">
-      <h2 class="typewriter" data-text='["A S SUMITH", "Cybersecurity Enthusiast", "IT Support Specialist", "Ethical Hacker"]'></h2>
-      <p>Junior Executive - IT | Security Researcher</p>
-      <a href="#about" class="btn-primary">Explore My Work <i class="fas fa-arrow-down"></i></a>
-    </div>
-  </section>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-user-secret"></i>
+                <span>A S SUMITH</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tools">Pentesting Tools</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container about-container">
-      <div class="about-image">
-        <img src="assets/img/profile.jpg" alt="A S SUMITH">
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>I am a detail-oriented IT professional with 2+ years experience in monitoring and maintaining computer systems. My expertise includes enhancing system performance, network management, and ethical hacking.</p>
-        <p>Proficient in Windows and Linux, I’ve trained at RedTeam Hacker Academy to sharpen my skills in vulnerability assessment and ethical hacking.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <div class="profile-ring"></div>
+                <div class="profile-photo">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>A S SUMITH</h1>
+                <h3>Junior Executive - IT | Cybersecurity Specialist</h3>
+                <p>IT professional with 2+ years of experience in system monitoring, network security, and vulnerability assessment. Passionate about cybersecurity and ethical hacking.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn">View Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section bg-light">
-    <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-box">
-          <h3>Cybersecurity</h3>
-          <ul>
-            <li>Vulnerability Assessment</li>
-            <li>Penetration Testing</li>
-            <li>Network Security</li>
-            <li>Security Auditing</li>
-            <li>Incident Response</li>
-          </ul>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Get to know my background, skills, and professional experience</p>
         </div>
-        <div class="skill-box">
-          <h3>Networking</h3>
-          <ul>
-            <li>TCP/IP Protocols</li>
-            <li>Firewall Configuration</li>
-            <li>VPN Setup</li>
-            <li>Wireless Security</li>
-            <li>Network Monitoring</li>
-          </ul>
+        <div class="about-content animated">
+            <p>I am a very structured and detail-conscious Computer Operator with over 2 years of experience in monitoring and maintaining computer systems and networks. I possess a proven history of enhancing system performance, enhancing data processes, and instituting effective troubleshooting protocols that reduce downtime and enhance productivity.</p>
+            
+            <p>I have a background of operating and troubleshooting software and hardware in Windows and Linux operating systems with excellent file processing, scanning, and networking capabilities. I am proud to have the capability to troubleshoot technical problems in a timely manner, ensure data integrity, and keep the system secure through maintenance and vulnerability scanning.</p>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Cybersecurity Skills</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Vulnerability Scanning</li>
+                        <li><i class="fas fa-check"></i> Network Security</li>
+                        <li><i class="fas fa-check"></i> Penetration Testing</li>
+                        <li><i class="fas fa-check"></i> Ethical Hacking</li>
+                        <li><i class="fas fa-check"></i> Security Auditing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Windows/Linux Administration</li>
+                        <li><i class="fas fa-check"></i> Network Management</li>
+                        <li><i class="fas fa-check"></i> Python Scripting</li>
+                        <li><i class="fas fa-check"></i> Troubleshooting</li>
+                        <li><i class="fas fa-check"></i> System Optimization</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="skill-box">
-          <h3>System Administration</h3>
-          <ul>
-            <li>Windows Server</li>
-            <li>Linux Admin</li>
-            <li>Virtualization</li>
-            <li>Backup Solutions</li>
-            <li>System Hardening</li>
-          </ul>
-        </div>
-        <div class="skill-box">
-          <h3>Development</h3>
-          <ul>
-            <li>Python Scripting</li>
-            <li>Bash Scripting</li>
-            <li>Web Development</li>
-            <li>Security Tooling</li>
-            <li>Automation</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Portfolio Section -->
-  <section id="portfolio" class="section">
-    <div class="container">
-      <h2 class="section-title">Recent Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <img src="assets/img/portscan.png" alt="Port Scanner">
-          <h3>Multi-threaded Port Scanner</h3>
-          <p>Python tool for scanning open TCP ports and grabbing banners using sockets and threads.</p>
-          <a href="https://github.com/Evilbyt/port-scanner/" target="_blank">GitHub ↗</a>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <h2>Services</h2>
+            <p>What I can offer for your business and projects</p>
         </div>
-        <div class="project-card">
-          <img src="assets/img/checker.png" alt="Password Checker">
-          <h3>Password Strength Checker</h3>
-          <p>GUI app using Tkinter to validate password strength with regex patterns.</p>
-          <a href="https://github.com/Evilbyt/passwd/" target="_blank">GitHub ↗</a>
+        <div class="services-grid">
+            <div class="service-card animated delay-1">
+                <div class="service-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h4>System Monitoring & Maintenance</h4>
+                <p>Maintaining best performance and uninterrupted operational availability.</p>
+            </div>
+            
+            <div class="service-card animated delay-2">
+                <div class="service-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h4>Troubleshooting & Problem-Solving</h4>
+                <p>Rapidly diagnosing and resolving hardware/software issues.</p>
+            </div>
+            
+            <div class="service-card animated delay-3">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h4>Data Entry & File Processing</h4>
+                <p>High accuracy data processes with optimal speed.</p>
+            </div>
+            
+            <div class="service-card animated">
+                <div class="service-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h4>Networking & Network Management</h4>
+                <p>Local network administration and vulnerability scanning.</p>
+            </div>
+            
+            <div class="service-card animated delay-1">
+                <div class="service-icon">
+                    <i class="fab fa-windows"></i>
+                </div>
+                <h4>Operating System Skills</h4>
+                <p>Experienced with Windows and Linux operating systems</p>
+            </div>
+            
+            <div class="service-card animated delay-2">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Cybersecurity Implementation</h4>
+                <p>Security protocols and vulnerability management for systems.</p>
+            </div>
         </div>
-        <div class="project-card">
-          <img src="assets/img/phising.jpg" alt="Phishing Lab">
-          <h3>Phishing Simulator</h3>
-          <p>Ethical phishing lab with fake login pages, logging, and email training templates.</p>
-          <a href="https://github.com/Evilbyt/phishing/" target="_blank">GitHub ↗</a>
-        </div>
-        <div class="project-card">
-          <img src="assets/img/esp8266.jpg" alt="ESP8266 Lab">
-          <h3>ESP8266 Wi-Fi Deauth</h3>
-          <p>Wireless deauthentication attack demonstration using Deauther firmware.</p>
-          <a href="https://github.com/Evilbyt/ESP8266-writeups/blob/main/Labs/ESP8266_WiFi_Deauth.md" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Tools Section -->
-  <section id="tools" class="section bg-dark text-white">
-    <div class="container">
-      <h2 class="section-title">Pentesting Tools</h2>
-      <div class="tools-grid">
-        <div class="tool-card">
-          <img src="assets/img/tools/nmap.png" alt="Nmap">
-          <h3>Nmap</h3>
-          <p>Network mapper used for scanning and service discovery.</p>
+    <!-- Pentesting Tools Section -->
+    <section id="tools">
+        <div class="section-header">
+            <h2>Pentesting Tools</h2>
+            <p>Specialized tools and frameworks I use for security assessments</p>
         </div>
-        <div class="tool-card">
-          <img src="assets/img/tools/burp.png" alt="Burp Suite">
-          <h3>Burp Suite</h3>
-          <p>Web application testing platform for intercepting and manipulating HTTP requests.</p>
+        <div class="tools-container">
+            <div class="tool-card animated">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Nmap</h3>
+                </div>
+                <p>Network discovery and security auditing tool. Used for host discovery, port scanning, version detection, and OS fingerprinting.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            
+            <div class="tool-card animated delay-1">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Metasploit</h3>
+                </div>
+                <p>Penetration testing framework that enables developing and executing exploit code against a remote target machine.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            
+            <div class="tool-card animated delay-2">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Wireshark</h3>
+                </div>
+                <p>Network protocol analyzer that lets you capture and interactively browse the traffic running on a computer network.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            
+            <div class="tool-card animated">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Burp Suite</h3>
+                </div>
+                <p>Integrated platform for performing security testing of web applications with various tools working seamlessly together.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            
+            <div class="tool-card animated delay-1">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>John the Ripper</h3>
+                </div>
+                <p>Fast password cracker tool to detect weak Unix passwords and support for hundreds of hash and cipher types.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            
+            <div class="tool-card animated delay-2">
+                <div class="tool-header">
+                    <div class="tool-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Aircrack-ng</h3>
+                </div>
+                <p>Complete suite of tools to assess WiFi network security focusing on monitoring, attacking, testing and cracking.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
         </div>
-        <div class="tool-card">
-          <img src="assets/img/tools/metasploit.png" alt="Metasploit">
-          <h3>Metasploit</h3>
-          <p>Powerful framework for developing and executing exploits on remote targets.</p>
-        </div>
-        <div class="tool-card">
-          <img src="assets/img/tools/wireshark.png" alt="Wireshark">
-          <h3>Wireshark</h3>
-          <p>Packet analyzer used to capture and inspect network traffic in real time.</p>
-        </div>
-      </div>
-      <div class="methodology">
-        <h3>My Pentesting Approach</h3>
-        <ol>
-          <li>Reconnaissance (OSINT, tools like Maltego)</li>
-          <li>Scanning (Nmap, Nessus)</li>
-          <li>Enumeration</li>
-          <li>Vulnerability Assessment</li>
-          <li>Exploitation</li>
-          <li>Post-Exploitation & Reporting</li>
-        </ol>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Get in Touch</h2>
-      <div class="contact-info">
-        <p><i class="fas fa-envelope"></i> <a href="mailto:sumithjohn1947@gmail.com">sumithjohn1947@gmail.com</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+916382626246">+91 6382626246</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
-        <div class="social-icons">
-          <a href="https://github.com/Evilbyt" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://twitter.com/yourhandle" target="_blank"><i class="fab fa-twitter"></i></a>
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <p>Check out some of my recent work and projects</p>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="portfolio-grid">
+            <div class="portfolio-item animated">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Port Scanner" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Advanced Multi-threaded Port Scanner</h3>
+                    <p>Python tool that scans a target host for open TCP ports and grabs banners.</p>
+                    <a href="https://github.com/Evilbyt/port-scanner/" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-item animated delay-1">
+                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Password Checker" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Password Strength Checker (GUI)</h3>
+                    <p>A simple desktop app built with Python’s Tkinter. Checks password strength.</p>
+                    <a href="https://github.com/Evilbyt/passwd/" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-item animated delay-2">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Phishing Simulator" class="portfolio-img">
+                <div class="portfolio-overlay">
+                    <h3>Advanced Phishing Simulator</h3>
+                    <p>A realistic phishing simulation tool for security awareness training.</p>
+                    <a href="https://github.com/Evilbyt/phishing/" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Contact Me</h2>
+            <p>Get in touch for collaborations or inquiries</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animated">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope"></i> www.sumithjohn1947@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 6382626246</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
+                </div>
+                
+                <h3 style="margin-top: 2rem;">Follow Me</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-info animated delay-1">
+                <h3>Location</h3>
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248756.13131271105!2d80.04385902558907!3d13.04747331581383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1752266109271!5m2!1sen!2sin" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 A S SUMITH. All Rights Reserved. | Designed with ❤️ for Cybersecurity</p>
+    </footer>
+
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#6a11cb" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#2575fc", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true }
+            },
+            retina_detect: true
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('section, .portfolio-item, .service-card, .contact-info, .tool-card').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 12, 41, 0.95)';
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                header.style.background = 'rgba(15, 12, 41, 0.85)';
+                header.style.padding = '1.2rem 0';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            }
+        });
+        
+        // Floating animation for profile photo
+        const profile = document.querySelector('.profile-container');
+        setInterval(() => {
+            profile.style.animation = 'none';
+            setTimeout(() => {
+                profile.style.animation = 'float 6s ease-in-out infinite';
+            }, 10);
+        }, 6000);
+    </script>
 </body>
 </html>
-
-
