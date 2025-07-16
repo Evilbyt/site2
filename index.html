@@ -469,6 +469,82 @@
             align-self: flex-start;
         }
         
+        /* NEW: Badges & Certifications Section */
+        .badges-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .badges-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .badge-card {
+            background: rgba(15, 12, 41, 0.6);
+            border-radius: 15px;
+            padding: 1.8rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(106, 17, 203, 0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .badge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(37, 117, 252, 0.25);
+            border-color: rgba(37, 117, 252, 0.4);
+            background: rgba(15, 12, 41, 0.75);
+        }
+        
+        .badge-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .badge-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--light);
+        }
+        
+        .badge-card p {
+            color: #c5c5c5;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .badge-card .btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+            align-self: center;
+            margin-top: auto;
+        }
+        
+        .badge-issuer {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
         /* Portfolio Section */
         .portfolio-grid {
             display: grid;
@@ -789,6 +865,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#tools">Pentesting Tools</a></li>
+                <li><a href="#badges">Badges & Certs</a></li>
                 <li><a href="#portfolio">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -989,6 +1066,77 @@
         </div>
     </section>
 
+    <!-- NEW: Badges & Certifications Section -->
+    <section id="badges">
+        <div class="section-header">
+            <h2>Badges & Certifications</h2>
+            <p>My credentials in cybersecurity and ethical hacking</p>
+        </div>
+        <div class="badges-section">
+            <div class="badges-container">
+                <div class="badge-card animated">
+                    <div class="badge-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h4>RedTeam Hacker Academy</h4>
+                    <p>Completed advanced penetration testing and ethical hacking training program with hands-on labs.</p>
+                    <p class="badge-issuer">RedTeam Hacker Academy</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+                
+                <div class="badge-card animated delay-1">
+                    <div class="badge-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h4>Certified Ethical Hacker (CEH)</h4>
+                    <p>Mastered ethical hacking methodologies and tools for penetration testing.</p>
+                    <p class="badge-issuer">EC-Council</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+                
+                <div class="badge-card animated delay-2">
+                    <div class="badge-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4>Network Security Specialist</h4>
+                    <p>Expertise in network defense strategies, firewall configuration, and intrusion detection.</p>
+                    <p class="badge-issuer">Cisco Networking Academy</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+                
+                <div class="badge-card animated">
+                    <div class="badge-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h4>Python for Security Professionals</h4>
+                    <p>Developed security tools and automation scripts using Python programming.</p>
+                    <p class="badge-issuer">Codecademy</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+                
+                <div class="badge-card animated delay-1">
+                    <div class="badge-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h4>Web Application Security</h4>
+                    <p>Specialized in identifying and mitigating web application vulnerabilities.</p>
+                    <p class="badge-issuer">OWASP Foundation</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+                
+                <div class="badge-card animated delay-2">
+                    <div class="badge-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h4>Cloud Security Fundamentals</h4>
+                    <p>Understanding of cloud security principles and best practices for AWS environments.</p>
+                    <p class="badge-issuer">Amazon Web Services</p>
+                    <a href="#" class="btn">Verify Credential</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Portfolio Section -->
     <section id="portfolio">
         <div class="section-header">
@@ -1123,7 +1271,7 @@
             threshold: 0.1
         });
         
-        document.querySelectorAll('section, .portfolio-item, .service-card, .contact-info, .tool-card').forEach((el) => {
+        document.querySelectorAll('section, .portfolio-item, .service-card, .contact-info, .tool-card, .badge-card').forEach((el) => {
             observer.observe(el);
         });
         
